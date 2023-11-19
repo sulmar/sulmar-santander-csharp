@@ -1,0 +1,4 @@
+## Typ wyliczeniowy
+
+
+
