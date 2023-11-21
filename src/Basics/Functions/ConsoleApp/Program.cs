@@ -20,6 +20,8 @@ Console.WriteLine(area);
 void GreetHelloWorld()
 {
     Console.WriteLine("Hello, World!");
+    Console.WriteLine("Hello, World!");
+    Console.WriteLine("Hello, World!");
 }
 
 void Greet(string name)
