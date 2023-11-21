@@ -9,4 +9,6 @@ W trakcie nawiązywania połączenia powinien wyświetlać się komunikat:
 ```
 
 oraz w kolejnej linii prezentować stan naładowania baterii:
+```
 Stan baterii: 70%
+```
