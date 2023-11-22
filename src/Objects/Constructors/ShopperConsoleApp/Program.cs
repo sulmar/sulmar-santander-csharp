@@ -45,8 +45,6 @@ namespace ShopperConsoleApp
 
             }
 
-            
-
             //Product product1 = new Product("Product 1", "1111", 1.99m);
             //Product product2 = new Product("Product 2", "2222", 20.99m);
             //Product product3 = new Product("Product 3", "3333", 100.99m);
