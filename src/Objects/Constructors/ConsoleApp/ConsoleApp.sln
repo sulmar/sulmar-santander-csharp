@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp.csproj", "{3AB109C2-F192-4BFB-91A9-ECD721236464}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "ConsoleApp.csproj", "{3AB109C2-F192-4BFB-91A9-ECD721236464}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehiclesConsoleApp", "..\VehiclesConsoleApp\VehiclesConsoleApp.csproj", "{C0D7405D-0722-4EE3-9F25-05FC65BE5F8C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VehiclesConsoleApp", "..\VehiclesConsoleApp\VehiclesConsoleApp.csproj", "{C0D7405D-0722-4EE3-9F25-05FC65BE5F8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneConsoleApp", "..\PhoneConsoleApp\PhoneConsoleApp.csproj", "{3B266588-CA63-4A35-B2BA-CAE09B408BA3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneConsoleApp", "..\PhoneConsoleApp\PhoneConsoleApp.csproj", "{3B266588-CA63-4A35-B2BA-CAE09B408BA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopperConsoleApp", "..\ShopperConsoleApp\ShopperConsoleApp.csproj", "{1C9ED110-6CF3-428C-A1F7-B631303121B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{3B266588-CA63-4A35-B2BA-CAE09B408BA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B266588-CA63-4A35-B2BA-CAE09B408BA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B266588-CA63-4A35-B2BA-CAE09B408BA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C9ED110-6CF3-428C-A1F7-B631303121B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C9ED110-6CF3-428C-A1F7-B631303121B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C9ED110-6CF3-428C-A1F7-B631303121B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C9ED110-6CF3-428C-A1F7-B631303121B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
