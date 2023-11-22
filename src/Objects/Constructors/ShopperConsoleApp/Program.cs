@@ -9,41 +9,17 @@ namespace ShopperConsoleApp
         {
             Console.WriteLine("Hello, Shopper!");
 
-            string filename = "Products.csv";
+            string path = @".\Products.csv";
             char separator = ';';
 
 
             // Tworzymy obiekt katalog produktowy
             ProductCatalog catalog = new ProductCatalog();
+            CsvFileProductService productService = new CsvFileProductService();
 
-            // Pobieranie produktów z pliku tekstowego CSV
+            List<Product> products = productService.GetProducts(path, separator);
 
-            // Odczytujemy zawartości całego pliku i przypisujemy do zmiennej tekstowej
-            // string content = File.ReadAllText(filename);
-
-            // Odczytujemy zawartość całego pliku i przypisujemy do tablicy tekstów jako osobne linie
-            string[] lines = File.ReadAllLines(filename);
-
-            // Przechodzimy po wierszach 
-            foreach (string line in lines.Skip(1)) // Skip(1) - pomija pierwszą linię
-            {
-                Console.WriteLine(line);
-
-                // Tniemy tekst na osobne kolumny
-                string[] columns = line.Split(separator);
-
-                // Pobieramy wartości poszczególnych kolumn i przypisujemy do zmiennych
-                string name = columns[0];
-                string barcode = columns[1];
-                decimal price = decimal.Parse(columns[2], CultureInfo.InvariantCulture);
-
-                // Tworzymy obiekt typu Product z użyciem konstruktora na podstawie zmiennych
-                Product product = new Product(name, barcode, price);
-
-                // Dodajemy utworzony obiekt produktu do katalogu 
-                catalog.AddProduct(product);
-
-            }
+           catalog.AddProducts(products);
 
             //Product product1 = new Product("Product 1", "1111", 1.99m);
             //Product product2 = new Product("Product 2", "2222", 20.99m);

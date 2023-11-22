@@ -20,6 +20,13 @@ namespace ShopperConsoleApp.Model
         {
             products.Add(product);
         }
+        public void AddProducts(List<Product> products)
+        {
+            foreach (Product product in products)
+            {
+                AddProduct(product);
+            }
+        }
 
         // Metoda do wyszukiwania produktu na podstawie kodu kreskowego
         public Product GetByBarCode(string barCode)
@@ -67,6 +74,8 @@ namespace ShopperConsoleApp.Model
                 Console.WriteLine($"{product.Name} {product.BarCode} {product.Price:C2} {product.Popularity}");
             }
         }
+
+       
 
     }
 }
