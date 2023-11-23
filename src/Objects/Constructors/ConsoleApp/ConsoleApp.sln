@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VehiclesConsoleApp", "..\Ve
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneConsoleApp", "..\PhoneConsoleApp\PhoneConsoleApp.csproj", "{3B266588-CA63-4A35-B2BA-CAE09B408BA3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopperConsoleApp", "..\ShopperConsoleApp\ShopperConsoleApp.csproj", "{1C9ED110-6CF3-428C-A1F7-B631303121B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopperConsoleApp", "..\ShopperConsoleApp\ShopperConsoleApp.csproj", "{1C9ED110-6CF3-428C-A1F7-B631303121B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogAnalyzer", "..\LogAnalyzer\LogAnalyzer.csproj", "{337EA5F8-CA44-4B20-BFB1-DE35AE6EDDEA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{1C9ED110-6CF3-428C-A1F7-B631303121B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C9ED110-6CF3-428C-A1F7-B631303121B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C9ED110-6CF3-428C-A1F7-B631303121B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{337EA5F8-CA44-4B20-BFB1-DE35AE6EDDEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{337EA5F8-CA44-4B20-BFB1-DE35AE6EDDEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{337EA5F8-CA44-4B20-BFB1-DE35AE6EDDEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{337EA5F8-CA44-4B20-BFB1-DE35AE6EDDEA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
