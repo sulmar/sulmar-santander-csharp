@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace ConsoleApp
 {
+    // https://learn.microsoft.com/pl-pl/dotnet/csharp/linq/
     internal class Program
     {
         static void Main(string[] args)
@@ -13,6 +14,174 @@ namespace ConsoleApp
 
             // FilterStringsByLinq();
 
+            // FilterCustomersByLinq();
+
+            // ProjectionByLinq();
+
+            // ProjectionsByLinq2();
+
+            // AggregateByLinq();
+
+            // IntersectionByLinq();
+
+            // DifferenceByLinq();
+
+            var bankTranfers = new List<BankTransfer>
+            {
+                new BankTransfer(100, "GB"),
+                new BankTransfer(200, "PLN"),
+                new BankTransfer(600, "USD"),
+                new BankTransfer(100, "GB"),
+                new BankTransfer(100, "USD"),
+                new BankTransfer(500, "USD"),
+            };
+            
+            // SQL: SELECT * FROM bankTranfers ORDER BY Amount 
+            var results1 = bankTranfers.OrderBy(bt => bt.Amount);
+
+            var results2 = from bt in bankTranfers
+                           orderby bt.Amount
+                           select bt;
+
+            // SQL: SELECT * FROM bankTranfers ORDER BY Amount desc
+            var results3 = bankTranfers.OrderByDescending(bt => bt.Amount);
+
+            var results4 = from bt in bankTranfers
+                           orderby bt.Amount descending
+                           select bt;
+
+            //  SQL: SELECT * FROM bankTranfers ORDER BY Amount, Currency
+            var results5 = bankTranfers.OrderBy(bt => new { bt.Amount, bt.Currency });
+
+            var results6 = from bt in bankTranfers
+                           orderby bt.Amount, bt.Currency
+                           select bt;
+
+            // Typ anonimowy
+            var vehicle = new { Id = 1, Model = "Audi A6", ProductionYear = 2023 };
+
+            var items = new List<string> { "100", "200", "20", "150" };
+
+            var sortedItems = items
+                .Select(i => int.Parse(i))
+                .OrderBy(i=>i);
+
+
+            var names = new List<string>
+            {
+                "ą",
+                "a",                
+                "ć",
+                "c",
+                "ó",
+                "o"
+            };
+
+
+            var q = names.Order();
+
+            //var checks = new List<string>
+            //{
+            //    "GB",
+            //    "USD"
+            //};
+
+            // var checkBankTranfers = bankTranfers.Select(bt=>bt.Currency).Intersect(checks);
+
+
+        }
+
+        private static void DifferenceByLinq()
+        {
+            var myNumbers = new List<int> { 1, 5, 6, 7, 8, 10, 11 };
+            var happyNumbers = new List<int> { 1, 6, 7, 12, 11, 9 };
+
+            // Różnica zbiorów
+            var results = myNumbers.Except(happyNumbers);
+        }
+
+        private static void IntersectionByLinq()
+        {
+            var myNumbers = new List<int> { 1, 5, 6, 7, 8, 10, 11 };
+            var happyNumbers = new List<int> { 1, 6, 7, 12, 11, 9 };
+
+            // Część wspólna (iloczyn zbiorów)
+            var results = myNumbers.Intersect(happyNumbers);
+
+            var count = myNumbers.Intersect(happyNumbers).Count();
+
+            foreach (var item in results)
+            {
+                Console.WriteLine(item);
+            }
+        }
+
+        private static void AggregateByLinq()
+        {
+            var items = new List<int> { 1, 5, 6, 7, 8, 10, 11 };
+
+            var total = items.Sum();
+
+            Console.WriteLine(total);
+
+            var people = new List<Person>()
+            {
+                new Person("John", "Smith",  DateTime.Parse("2001-01-01"), 176, 80),
+                new Person("Bob",  "Smith",  DateTime.Parse("2011-04-01"), 156, 40),
+                new Person("Kate", "Smith",  DateTime.Parse("2005-05-01"), 166, 50),
+                new Person("John", "Spider", DateTime.Parse("1990-12-01"), 186, 90),
+                new Person("Bob", "Spider",  DateTime.Parse("1991-11-01"), 180, 60),
+            };
+
+            // SQL: SELECT sum(Weight) FROM people WHERE Age > 30
+            var totalWeight = people
+                .Where(person => person.Age > 30)
+                .Sum(person => person.Weight);
+
+            // SQL: SELECT AVG(Age) FROM people
+            var avgAge = people.Average(person => person.Age);
+
+            Console.WriteLine(totalWeight);
+            Console.WriteLine(avgAge);
+        }
+
+        private static void ProjectionsByLinq2()
+        {
+            var items = new List<int> { 1, 5, 6, 7, 8, 10, 11 };
+
+            var results = items.Select(item => item * item);
+
+            foreach (var item in results)
+            {
+                Console.WriteLine(item);
+            }
+        }
+
+        private static void ProjectionByLinq()
+        {
+            var people = new List<Person>()
+            {
+                new Person("John", "Smith",  DateTime.Parse("2001-01-01"), 176, 80),
+                new Person("Bob",  "Smith",  DateTime.Parse("2011-04-01"), 156, 40),
+                new Person("Kate", "Smith",  DateTime.Parse("2005-05-01"), 166, 50),
+                new Person("John", "Spider", DateTime.Parse("1990-12-01"), 186, 90),
+                new Person("Bob", "Spider",  DateTime.Parse("1991-11-01"), 180, 60),
+            };
+
+            // Projekcja
+            // SQL: SELECT firstname, lastname FROM people
+            var results = people
+                .Where(person => person.Weight > 50)
+                .Select(person => new { person.FirstName, person.LastName }); // Powstaje Tuple, Typ anonimowy
+
+            foreach (var person in results)
+            {
+                Console.WriteLine($"{person.FirstName} {person.LastName}");
+            }
+        }
+
+        private static void FilterCustomersByLinq()
+        {
             var customers = new List<Customer>
             {
                 new(1, "A", "Warszawa", 0),
@@ -40,8 +209,6 @@ namespace ConsoleApp
             {
                 Console.WriteLine($"{customer.Name} {customer.City} {customer.Balance}");
             }
-
-
         }
 
         private static void FilterStringsByLinq()
