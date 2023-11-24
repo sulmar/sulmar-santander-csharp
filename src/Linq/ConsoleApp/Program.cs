@@ -35,8 +35,26 @@ namespace ConsoleApp
                 new BankTransfer(100, "USD"),
                 new BankTransfer(500, "USD"),
             };
-            
-            // SQL: SELECT * FROM bankTranfers ORDER BY Amount 
+
+`            // SQL:
+            // SELECT Currency, SUM(Amount) as TotalAmount
+            // FROM bankTranfers
+            // GROUP BY Currency
+            var query = bankTranfers
+                .GroupBy(bankTranfer => bankTranfer.Currency)
+                .Select(g => new { Currency = g.Key, TotalAmount = g.Sum(bt => bt.Amount) })
+                .ToList();
+
+            var query2 = from bankTranfer in bankTranfers
+                         group bankTranfer by bankTranfer.Currency into g
+                         select new { Currency = g.Key, TotalAmount = g.Sum(bt=>bt.Amount) };
+
+
+            // GB 200
+            // PLN 200
+            // USD 1200
+
+                         // SQL: SELECT * FROM bankTranfers ORDER BY Amount 
             var results1 = bankTranfers.OrderBy(bt => bt.Amount);
 
             var results2 = from bt in bankTranfers
@@ -64,13 +82,13 @@ namespace ConsoleApp
 
             var sortedItems = items
                 .Select(i => int.Parse(i))
-                .OrderBy(i=>i);
+                .OrderBy(i => i);
 
 
             var names = new List<string>
             {
                 "ą",
-                "a",                
+                "a",
                 "ć",
                 "c",
                 "ó",

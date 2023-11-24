@@ -19,7 +19,9 @@
             var uniqueIpAddresses = filteredLogEntries
                 .DistinctBy(logEntry => logEntry.Ip);
 
-
+            // TCP 40000
+            // UDP 30000
+            // HTTP 50000
 
         }
     }
